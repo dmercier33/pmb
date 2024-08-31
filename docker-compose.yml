@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  pmb:
+    build: .
+    image: pmb7.3.18-php-apache:latest
+    ports:
+      - "80:80"
+      
+    depends_on:
+      - db
+
+  db:
+    image: mariadb-server:10.6.3
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: bibli
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
