@@ -9,7 +9,7 @@ rm -rf /var/lib/apt/lists/*;
 RUN docker-php-ext-install mysqli
 
 # Copier les fichiers de PMB dans le conteneur
-COPY ./pmb/ /var/www/html/
+COPY ./SOURCES_PMB/ /var/www/html/
 
 # Configurer les permissions
 RUN chown -R www-data:www-data /var/www/html/
